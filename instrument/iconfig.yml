@@ -1,0 +1,50 @@
+# configuration.yml
+
+# configuration for the instrument package
+# simple key:value pairs
+
+# ADSIM_IOC_PREFIX: "ad:"
+# GP_IOC_PREFIX: "gp:"
+
+DATABROKER_CATALOG: &databroker_catalog 25id
+
+# default RunEngine metadata
+RUNENGINE_METADATA:
+  beamline_id: 25id
+  instrument_name: APS 25ID TR_uProbe
+  proposal_id: commissioning
+  databroker_catalog: *databroker_catalog
+
+# paths
+# AD_IMAGE_DIR: "adsimdet/%Y/%m/%d"
+# AD_MOUNT_PATH: /tmp
+# BLUESKY_MOUNT_PATH: /tmp/docker_ioc/iocad/tmp
+
+# permissions
+ALLOW_AREA_DETECTOR_WARMUP: false
+ENABLE_AREA_DETECTOR_IMAGE_PLUGIN: true
+ENABLE_CALCS: true
+USE_PROGRESS_BAR: false
+WRITE_SPEC_DATA_FILES: true
+
+# ----------------------------------
+
+# default timeouts (seconds)
+PV_TIMEOUT: &TIMEOUT 60
+PV_WRITE_TIMEOUT: *TIMEOUT
+PV_CONNECTION_TIMEOUT: *TIMEOUT
+
+# Minimum software package version checks: MAJOR.minor (no .patch).
+# These will be converted to tuple() for comparisons.
+MINIMUM_PYTHON_VERSION:
+  - 3
+  - 7
+MINIMUM_BLUESKY_VERSION:
+  - 1
+  - 8
+MINIMUM_OPHYD_VERSION:
+  - 1
+  - 6
+MINIMUM_DATABROKER_VERSION:
+  - 1
+  - 2
